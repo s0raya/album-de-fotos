@@ -1,0 +1,5 @@
+.container-photos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+}

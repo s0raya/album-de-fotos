@@ -1,0 +1,7 @@
+POST http://localhost:47568/createAlbum
+Content-Type: application/json
+
+{
+    "name": "Album 3",
+     "parent": "663403fe882141b662b2c38a"
+}

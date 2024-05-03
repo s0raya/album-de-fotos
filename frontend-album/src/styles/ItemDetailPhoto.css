@@ -1,0 +1,25 @@
+.container_photo {
+    display: flex;
+    align-items: center;
+
+}
+
+.container_photo img {
+    max-width: 50%;
+}
+
+.btn-delete, .btn-download {
+    font-size: 40px;
+    border: none;
+    background: none;
+}
+
+.btn-delete:hover {
+    color: red;
+    cursor: pointer;
+}
+
+.btn-download:hover {
+    color: blue;
+    cursor: pointer;
+}
