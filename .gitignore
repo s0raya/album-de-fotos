@@ -30,7 +30,8 @@ package-lock.json
 /build-output/
 public/
 # Archivos de configuración de editor
-.vscode/
+**/.vscode/
+.vscode
 .idea/
 
 # Archivos de sistema
