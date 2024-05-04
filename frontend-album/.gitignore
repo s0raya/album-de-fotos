@@ -25,12 +25,10 @@ package-lock.json
 # Archivos de construcción
 /build/  
 /dist/  
-/out/   
+/out/  
 /build-output/
-public/photos
 
 # Archivos de configuración de editor
-**/.vscode/
 .vscode/
 .idea/
 
