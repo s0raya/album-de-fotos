@@ -10,8 +10,8 @@ Este directorio contiene el código del backend para una aplicación web de álb
 4. [Librerías utilizadas](#librerías-utilizadas)
 5. [Dependencias](#dependencias)
 
-### Estructura de archivos
-
+## Estructura de archivos
+```
 .
 ├── src
 │   ├── config
@@ -34,8 +34,9 @@ Este directorio contiene el código del backend para una aplicación web de álb
 ├── public
 │   └── photos/
 └── README.md
+```
 
-### Descripción de archivos
+## Descripción de archivos
 
 - **index.js**: El punto de entrada del servidor Express. Este archivo configura las rutas y los middleware, y luego inicia el servidor en un puerto específico.
 
@@ -60,7 +61,7 @@ Estos modelos permiten realizar operaciones CRUD (Crear, Leer, Actualizar y Elim
 - **controllers/**: Contiene los controladores de la aplicación.
     - **photoController.js**: El archivo `photoController.js` contiene la lógica del controlador para gestionar las solicitudes relacionadas con las fotos y los álbumes en la aplicación. 
 
-### Métodos del controlador:
+## Métodos del controlador:
 
 1. **getAllPhotos**: Maneja la solicitud para obtener todas las fotos y álbumes. Filtra las fotos y los álbumes por el ID del álbum si se proporciona.
 
@@ -76,7 +77,7 @@ Estos modelos permiten realizar operaciones CRUD (Crear, Leer, Actualizar y Elim
 
 Estos métodos son utilizados por las rutas definidas en el archivo `photos.js` para manejar las solicitudes HTTP entrantes y realizar operaciones en la base de datos y el almacenamiento en la nube.
 
-### Librerías utilizadas:
+## Librerías utilizadas:
 
 - **path**: Se utiliza para manejar y transformar las rutas de archivos.
 - **uploadFile**: Un middleware personalizado para subir archivos a Firebase Storage.
@@ -87,7 +88,7 @@ Estos métodos son utilizados por las rutas definidas en el archivo `photos.js` 
 - **dotenv**: Utilizada para cargar variables de entorno desde un archivo `.env`.
 
 
-### Dependencias
+## Dependencias
 
 - **Express**: Framework de aplicaciones web para Node.js.
 - **Mongoose**: Biblioteca de modelado de objetos MongoDB para Node.js.
