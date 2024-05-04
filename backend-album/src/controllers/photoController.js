@@ -106,7 +106,7 @@ const photoController = {
                         description,
                         icon
                     },
-                    date: DateTimeOriginal ? DateTimeOriginal : "",
+                    date: DateTimeOriginal ? DateTimeOriginal : '',
                     album: albumId ? albumId : ''
                 })
             }))

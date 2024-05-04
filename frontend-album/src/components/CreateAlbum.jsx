@@ -33,7 +33,6 @@ function CreateAlbum({onUploadSuccess, closeModal }) {
             closeModal();
             onUploadSuccess();
         } catch (error) {
-            console.log(error)
             setError(error.message);
         }
         setLoading(false);

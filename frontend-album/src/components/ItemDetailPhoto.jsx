@@ -56,7 +56,6 @@ function ItemDetailPhoto() {
             xhr.send();
         })
         .catch((error) => {
-            console.log(error)
             alert('Error al descargar la foto')
         })
     }

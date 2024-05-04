@@ -1,0 +1,12 @@
+.loginForm {
+    display: flex;
+    flex-direction: column;
+    border: 2px solid white;
+    padding: 50px;
+    align-items: center;
+}
+
+.loginForm input {
+    margin: 10px;
+    height: 1.5rem;
+}

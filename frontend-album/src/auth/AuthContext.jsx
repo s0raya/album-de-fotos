@@ -31,7 +31,7 @@ export function AuthProvider({children}) {
             await setPersistence(auth, browserSessionPersistence);
             await signInWithEmailAndPassword(auth, email, password);
         } catch (error) {
-            console.log('hubo un error al iniciar sesion', error)
+            console.log('Hubo un error al iniciar sesion', error)
         }
     }
 

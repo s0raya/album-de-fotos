@@ -53,7 +53,6 @@ function ItemDetailAlbum() {
             alert('Album eliminado')
             navigate('/home')        
         } catch (error) {
-            console.log(error)
             alert('Hubo un problema al eliminar el album')
         }
     }
