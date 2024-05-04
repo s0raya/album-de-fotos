@@ -1,4 +1,4 @@
-# Frontend del Álbum de Fotos
+# Aplicación de Álbum de Fotos (Frontend)
 
 Este directorio contiene el codigo del frontend para una aplicacion web de álbum de fotos, realizada con React y Vite.
 
