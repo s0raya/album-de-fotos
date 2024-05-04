@@ -9,7 +9,7 @@ Este directorio contiene el codigo del frontend para una aplicacion web de álbu
 3. [Funcionalidades Principales](#funcionalidades-principales)
 4. [Tecnologías Utilizadas](#tecnologías-utilizadas)
 
-### Estructura de archivos
+## Estructura de archivos
 
 ```
 .
@@ -71,22 +71,22 @@ El proyecto está estructurado de la siguiente manera:
 - **public/**: Contiene archivos públicos como el ícono de la aplicación y el archivo HTML base.
 
 
-### Descripción de archivos
+## Descripción de archivos
 
 - **index.html:** Punto de entrada de la aplicación web. Contiene el contenedor `<div id="root">` donde se renderizará la aplicación React.
 
-#### src
+### src
 - **App.jsx:** Componente principal de la aplicación. Envuelve toda la aplicación con el contexto de autenticación.
 - **main.jsx:** Punto de entrada de la aplicación React. Renderiza el componente `App` en el contenedor `root` del archivo HTML.
 
-#### routes
+### routes
 - **RoutesApp.jsx:** Define las rutas de la aplicación utilizando React Router. Determina qué componente se renderizará en función de la URL actual.
 
-#### auth
+### auth
 - **AuthContext.jsx:** Define el contexto de autenticación utilizando React Context API. Proporciona un proveedor de autenticación y hooks personalizados para acceder al estado de autenticación en toda la aplicación.
 - **useAuth.js:** Un hook personalizado que proporciona acceso al contexto de autenticación en cualquier componente de la aplicación.
 
-#### components
+### components
 - **Auth.jsx:** Componente de orden superior que envuelve a otros componentes y proporciona autenticación. Verifica si el usuario está autenticado y muestra la página principal solo si está autenticado.
 - **CreateAlbum.jsx:** Permite al usuario crear un nuevo álbum. Contiene un formulario donde el usuario puede ingresar el nombre del álbum y luego enviarlo al servidor.
 - **Home.jsx:** Componente principal de la página de inicio. Muestra todas las fotos y álbumes del usuario y proporciona opciones para cargar nuevas fotos y crear álbumes.
@@ -98,15 +98,15 @@ El proyecto está estructurado de la siguiente manera:
 - **NavbarPhoto.jsx:** Barra de navegación para la página de detalles de la foto. Contiene un enlace para volver a la página de inicio y un botón para cerrar sesión.
 - **UploadFile.jsx:** Permite al usuario cargar archivos (fotos) en la aplicación. Contiene un formulario donde el usuario puede seleccionar archivos y luego enviarlos al servidor.
 
-#### config
+### config
 - **FirebaseConfig.js:** Configuración de Firebase donde se inicializa la aplicación Firebase y se obtiene el objeto de autenticación.
 
-#### hooks
+### hooks
 - **useModal.js:** Hook personalizado que proporciona funcionalidad para controlar un estado de modal en los componentes.
-#### styles
+### styles
 - **Estilos CSS:** Archivos CSS que contienen estilos para los diferentes componentes de la aplicación.
 
-### Funcionalidades Principales
+## Funcionalidades Principales
 
 - **Inicio de Sesión**: Los usuarios pueden iniciar sesión utilizando sus credenciales creadas en Firebase Authentication.
 - **Carga de Fotos**: Los usuarios pueden cargar fotos a la aplicación.
@@ -114,7 +114,7 @@ El proyecto está estructurado de la siguiente manera:
 - **Navegación**: Los usuarios pueden navegar por la aplicación utilizando las diferentes rutas definidas.
 - **Interfaz de Usuario Intuitiva**: La aplicación cuenta con una interfaz de usuario intuitiva y fácil de usar.
 
-### Tecnologías Utilizadas
+## Tecnologías Utilizadas
 
 - **Firebase**: Proporciona servicios en la nube como almacenamiento de archivos y autenticación de usuarios.
 - **i18next**: Biblioteca de internacionalización que facilita la traducción del contenido de la aplicación.
