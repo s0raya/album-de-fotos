@@ -1,10 +1,18 @@
-# Album de Fotos
+# Frontend del Álbum de Fotos
 
-Este proyecto es una aplicación web para gestionar un álbum de fotos. Permite a los usuarios registrarse, iniciar sesión, ver y cargar fotos, crear álbumes y ver detalles de las fotos y álbumes.
+Este directorio contiene el codigo del frontend para una aplicacion web de álbum de fotos, realizada con React y Vite.
 
-## Estructura de archivos
+## Índice
+
+1. [Estructura de archivos](#estructura-de-archivos)
+2. [Descripción de archivos](#descripción-de-archivos)
+3. [Funcionalidades Principales](#funcionalidades-principales)
+4. [Tecnologías Utilizadas](#tecnologías-utilizadas)
+
+### Estructura de archivos
 
 ```
+.
 ├── src
 │   ├── assets
 │   │   └── react.svg
@@ -50,59 +58,35 @@ Este proyecto es una aplicación web para gestionar un álbum de fotos. Permite 
 
 ```
 
-## Características principales
+El proyecto está estructurado de la siguiente manera:
 
-- **Autenticación de usuarios:** Utiliza Firebase Authentication para permitir que los usuarios inicien sesión.
-- **Gestión de álbumes:** Permite a los usuarios crear álbumes para organizar sus fotos.
-- **Carga de fotos:** Los usuarios pueden cargar fotos en la aplicación para agregarlas a su álbum.
-- **Visualización de detalles:** Proporciona una vista detallada de las fotos y álbumes, incluyendo información como la fecha de carga, el clima y más.
+- **src/**: Contiene todos los archivos fuente de la aplicación.
+  - **components/**: Componentes React reutilizables.
+  - **auth/**: Contiene el contexto de autenticación y los archivos relacionados con la autenticación.
+  - **hooks/**: Hooks personalizados utilizados en la aplicación.
+  - **routes/**: Configuración de rutas de la aplicación.
+  - **styles/**: Archivos de estilos CSS.
+  - **App.jsx**: Componente principal de la aplicación.
+  - **index.js**: Punto de entrada de la aplicación.
+- **public/**: Contiene archivos públicos como el ícono de la aplicación y el archivo HTML base.
 
-## Tecnologías utilizadas
 
-- **React:** La aplicación está desarrollada utilizando React, una biblioteca de JavaScript para construir interfaces de usuario.
-- **Firebase:** Se utiliza Firebase Authentication para la autenticación de usuarios.
-- **React Router:** Para la navegación dentro de la aplicación.
-- **React Icons:** Para incluir iconos en la interfaz de usuario.
-- **Moment.js:** Para formatear fechas.
-- **React Select:** Para crear selectores de opciones.
-- **React Modal:** Para mostrar ventanas modales en la aplicación.
-
-## Instalación y configuración
-
-1. Clona este repositorio en tu máquina local.
-2. Instala las dependencias utilizando `npm install`.
-3. Configura Firebase en tu proyecto y obtén las credenciales necesarias.
-4. Crea un archivo `.env` en la raíz del proyecto y agrega las variables de entorno necesarias para la configuración de Firebase.
-5. Ejecuta la aplicación utilizando `npm start`.
-
-## Uso
-
-1. Inicia sesión en la aplicación.
-2. Explora las diferentes opciones de navegación para ver y administrar tus fotos y álbumes.
-3. Utiliza las funciones de carga y creación de álbumes para organizar tus fotos.
-4. Haz clic en una foto o álbum para ver detalles adicionales.
-5. Cierra sesión cuando hayas terminado de usar la aplicación.
-
-### Archivo en la raíz del proyecto
+### Descripción de archivos
 
 - **index.html:** Punto de entrada de la aplicación web. Contiene el contenedor `<div id="root">` donde se renderizará la aplicación React.
 
-### Carpeta src
-
+#### src
 - **App.jsx:** Componente principal de la aplicación. Envuelve toda la aplicación con el contexto de autenticación.
 - **main.jsx:** Punto de entrada de la aplicación React. Renderiza el componente `App` en el contenedor `root` del archivo HTML.
 
-# Routes
+#### routes
+- **RoutesApp.jsx:** Define las rutas de la aplicación utilizando React Router. Determina qué componente se renderizará en función de la URL actual.
 
-- **routes/RoutesApp.jsx:** Define las rutas de la aplicación utilizando React Router. Determina qué componente se renderizará en función de la URL actual.
-
-### Carpeta auth
-
+#### auth
 - **AuthContext.jsx:** Define el contexto de autenticación utilizando React Context API. Proporciona un proveedor de autenticación y hooks personalizados para acceder al estado de autenticación en toda la aplicación.
 - **useAuth.js:** Un hook personalizado que proporciona acceso al contexto de autenticación en cualquier componente de la aplicación.
 
-### Carpeta components
-
+#### components
 - **Auth.jsx:** Componente de orden superior que envuelve a otros componentes y proporciona autenticación. Verifica si el usuario está autenticado y muestra la página principal solo si está autenticado.
 - **CreateAlbum.jsx:** Permite al usuario crear un nuevo álbum. Contiene un formulario donde el usuario puede ingresar el nombre del álbum y luego enviarlo al servidor.
 - **Home.jsx:** Componente principal de la página de inicio. Muestra todas las fotos y álbumes del usuario y proporciona opciones para cargar nuevas fotos y crear álbumes.
@@ -114,16 +98,31 @@ Este proyecto es una aplicación web para gestionar un álbum de fotos. Permite 
 - **NavbarPhoto.jsx:** Barra de navegación para la página de detalles de la foto. Contiene un enlace para volver a la página de inicio y un botón para cerrar sesión.
 - **UploadFile.jsx:** Permite al usuario cargar archivos (fotos) en la aplicación. Contiene un formulario donde el usuario puede seleccionar archivos y luego enviarlos al servidor.
 
-### Carpeta config
-
+#### config
 - **FirebaseConfig.js:** Configuración de Firebase donde se inicializa la aplicación Firebase y se obtiene el objeto de autenticación.
 
-### Carpeta hooks
-
+#### hooks
 - **useModal.js:** Hook personalizado que proporciona funcionalidad para controlar un estado de modal en los componentes.
-
-### Carpeta styles
-
+#### styles
 - **Estilos CSS:** Archivos CSS que contienen estilos para los diferentes componentes de la aplicación.
 
+### Funcionalidades Principales
 
+- **Inicio de Sesión**: Los usuarios pueden iniciar sesión utilizando sus credenciales creadas en Firebase Authentication.
+- **Carga de Fotos**: Los usuarios pueden cargar fotos a la aplicación.
+- **Creación de Álbumes**: Los usuarios pueden crear álbumes y organizar sus fotos.
+- **Navegación**: Los usuarios pueden navegar por la aplicación utilizando las diferentes rutas definidas.
+- **Interfaz de Usuario Intuitiva**: La aplicación cuenta con una interfaz de usuario intuitiva y fácil de usar.
+
+### Tecnologías Utilizadas
+
+- **Firebase**: Proporciona servicios en la nube como almacenamiento de archivos y autenticación de usuarios.
+- **i18next**: Biblioteca de internacionalización que facilita la traducción del contenido de la aplicación.
+- **i18next-browser-languagedetector**: Detecta automáticamente el idioma preferido del navegador del usuario para la internacionalización.
+- **Moment.js**: Librería para manipulación y visualización de fechas y horas.
+- **React**: Biblioteca de JavaScript para construir interfaces de usuario.
+- **React DOM**: Biblioteca para manipular el DOM y renderizar componentes de React.
+- **React i18next**: Integración de i18next con React para la internacionalización de la aplicación.
+- **React Icons**: Conjunto de iconos para usar en la interfaz de usuario.
+- **React Router DOM**: Enrutador para la navegación entre componentes en una aplicación React.
+- **React Select**: Componente para crear selectores de opciones personalizados en React.
