@@ -21,7 +21,7 @@ El backend de la aplicación está construido con Node.js y Express, utiliza una
 
 Para obtener más detalles sobre el backend y las dependencias utilizadas, consulta el [README del Backend](backend-album/README.md).
 
-### Uso
+## Uso
 
 1. Inicia sesión en la aplicación.
 2. Explora las diferentes opciones de navegación para ver y administrar tus fotos y álbumes.
