@@ -26,9 +26,7 @@ package-lock.json
 /build/  
 /dist/  
 /out/  
-/public/  
 /build-output/
-public/
 
 # Archivos de configuración de editor
 **/.vscode/

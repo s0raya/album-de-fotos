@@ -62,25 +62,28 @@ const photoController = {
                 const end_date = moment(DateTimeOriginal).add(1, 'days').format('YYYY-MM-DD:HH')
 
                 const fetchWeather = async(latitude, longitude, start_date, end_date) => {
-                    const key = process.env.WT_APIKEY;
-                    try {
-                        const res = await fetch(`${process.env.WT_URL}?lat=${latitude}&lon=${longitude}&start_date=${start_date}&end_date=${end_date}&key=${key}`)
-                        const data = await res.json();
-                        const { description, icon } = data.data[0].weather;
-                        const { temp } = data.data[0];
-                        return { description, icon, temp};
-                    } catch (error) {
-                        res.status(500).send({ message: "Error with API Weather"})
+                    if (latitude && longitude && start_date && end_date) {
+                        const key = process.env.WT_APIKEY;
+                        try {
+                            const res = await fetch(`${process.env.WT_URL}?lat=${latitude}&lon=${longitude}&start_date=${start_date}&end_date=${end_date}&key=${key}`)
+                            const data = await res.json();
+                            const { description, icon } = data.data[0].weather;
+                            const { temp } = data.data[0];
+                            return { description, icon, temp};
+                        } catch (error) {
+                            res.status(500).send({ message: "Error with API Weather"})
+                        }
+                    } else {
+                        return "", "", 0;
                     }
                 }
-                const { description, icon, temp } = await fetchWeather(latitude, longitude, start_date, end_date);
 
+                const { description, icon, temp } = await fetchWeather(latitude, longitude, start_date, end_date);
 
                 //Convierto la foto en buffer para subirla a firebase
                 let fileOriginal = await sharp(file.path).toBuffer()
                 const { downloadURL: originalDownloadURL } = await uploadFile(fileOriginal, file)
                 fileOriginal = null;
-
 
                 //Comprimo la foto para la cover que se sube a firebase
                 let fileCompressed = await sharp(file.path)
@@ -88,27 +91,24 @@ const photoController = {
                 .toBuffer()
                 const { downloadURL: compressedDownloadURL } = await uploadFile(fileCompressed, file, true)
                 fileCompressed = null;
-
                 //Elimino el archivo de la carpeta local
                 fs.unlink(file.path);
-
                 //Creo la foto en la base de datos
                 const newPhoto = await Photo.create({
                     name: filename,
                     path: originalDownloadURL,
                     cover_path: compressedDownloadURL,
                     tags: [],
-                    lat: latitude,
-                    lng: longitude,
+                    lat: latitude ? latitude : "",
+                    lng: longitude ? longitude : "",
                     weather: {
                         temp,
                         description,
                         icon
                     },
-                    date: DateTimeOriginal,
+                    date: DateTimeOriginal ? DateTimeOriginal : "",
                     album: albumId ? albumId : ''
                 })
-
             }))
             res.redirect(reqPath)
         } catch (error) {

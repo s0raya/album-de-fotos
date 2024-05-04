@@ -10,8 +10,6 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "bcrypt": "^5.1.1",
-    "crypto": "^1.0.1",
     "firebase": "^10.11.1",
     "i18next": "^23.11.2",
     "i18next-browser-languagedetector": "^7.2.1",
