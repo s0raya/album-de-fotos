@@ -1,6 +1,6 @@
 # Aplicación de Álbum de Fotos
 
-Este proyecto es una aplicación web para gestionar un álbum de fotos. Permite a los usuarios iniciar sesión, crear albumes, ver y cargar fotos, entrar al detalle de cada una de ellas, eliminarlas y descargarlas.
+Este proyecto es una aplicación web para gestionar un álbum de fotos. Permite a los usuarios autorizados iniciar sesión, crear albumes, ver y cargar fotos, entrar al detalle de cada una de ellas, eliminarlas y descargarlas.
 
 ## Características principales
 
