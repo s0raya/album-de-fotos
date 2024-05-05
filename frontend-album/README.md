@@ -107,7 +107,7 @@ El proyecto está estructurado de la siguiente manera:
 
 ## Funcionalidades Principales
 
-- **Inicio de Sesión**: Los usuarios pueden iniciar sesión utilizando sus credenciales creadas en Firebase Authentication.
+- **Inicio de Sesión**: Los usuarios autorizados pueden iniciar sesión utilizando sus credenciales creadas en Firebase Authentication.
 - **Carga de Fotos**: Los usuarios pueden cargar fotos a la aplicación.
 - **Creación de Álbumes**: Los usuarios pueden crear álbumes y organizar sus fotos.
 - **Navegación**: Los usuarios pueden navegar por la aplicación utilizando las diferentes rutas definidas.
