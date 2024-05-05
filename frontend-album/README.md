@@ -53,8 +53,7 @@ Este directorio contiene el codigo del frontend para una aplicacion web de álbu
 ├── package-lock.json
 ├── public
 │   └── no-image.webp
-├── README.md
-└── .gitignore
+└── README.md
 
 ```
 
