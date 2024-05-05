@@ -90,8 +90,8 @@ El proyecto está estructurado de la siguiente manera:
 - **CreateAlbum.jsx:** Permite al usuario crear un nuevo álbum. Contiene un formulario donde el usuario puede ingresar el nombre del álbum y luego enviarlo al servidor.
 - **Home.jsx:** Componente principal de la página de inicio. Muestra todas las fotos y álbumes del usuario y proporciona opciones para cargar nuevas fotos y crear álbumes.
 - **ItemDetailAlbum.jsx:** Muestra los detalles de un álbum específico. Muestra las fotos dentro del álbum y proporciona opciones para eliminar el álbum.
-- **ItemDetailPhoto.jsx:** Muestra los detalles de una foto específica. Muestra la foto, la fecha de carga, el clima en el momento de la carga y proporciona opciones para eliminar y descargar la foto.
-- **Login.jsx:** Muestra un formulario de inicio de sesión. Los usuarios pueden ingresar su correo electrónico y contraseña para iniciar sesión en la aplicación.
+- **ItemDetailPhoto.jsx:** Muestra los detalles de una foto específica. Muestra la foto, la fecha y el clima en el momento en el que se realizó la foto, y proporciona opciones para eliminar y descargar la foto.
+- **Login.jsx:** Muestra un formulario de inicio de sesión. Los usuarios autorizados pueden ingresar su correo electrónico y contraseña para iniciar sesión en la aplicación.
 - **Modal.jsx:** Componente reutilizable que muestra un contenido modal cuando está abierto. Proporciona una opción para cerrar el modal.
 - **Navbar.jsx:** Barra de navegación principal de la aplicación. Contiene enlaces para la página de inicio, opciones para cargar fotos y crear álbumes, y un botón para cerrar sesión.
 - **NavbarPhoto.jsx:** Barra de navegación para la página de detalles de la foto. Contiene un enlace para volver a la página de inicio y un botón para cerrar sesión.
