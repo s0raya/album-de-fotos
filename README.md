@@ -7,7 +7,7 @@ Este proyecto es una aplicación web para gestionar un álbum de fotos. Permite 
 - **Autenticación de usuarios:** Utiliza Firebase Authentication para permitir que los usuarios autorizados inicien sesión.
 - **Gestión de álbumes:** Permite a los usuarios crear álbumes para organizar sus fotos.
 - **Carga de fotos:** Los usuarios pueden cargar fotos en la aplicación para agregarlas a su álbum.
-- **Visualización de detalles:** Proporciona una vista detallada de las fotos y álbumes, incluyendo información como la fecha de carga, el clima y más.
+- **Visualización de detalles:** Proporciona una vista detallada de las fotos, incluyendo información como la fecha de realización, el clima y más.
 
 ## Frontend
 
