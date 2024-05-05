@@ -79,13 +79,13 @@ Estos métodos son utilizados por las rutas definidas en el archivo `photos.js` 
 
 ## Librerías utilizadas:
 
-- **path**: Se utiliza para manejar y transformar las rutas de archivos.
+- **path**: Sirve para manejar y transformar las rutas de archivos.
 - **uploadFile**: Un middleware personalizado para subir archivos a Firebase Storage.
 - **sharp**: Una librería para procesamiento de imágenes.
 - **moment**: Utilizada para manejar fechas y horas en JavaScript.
 - **fs**: Proporciona métodos para interactuar con el sistema de archivos del servidor.
 - **exifr**: Una librería para leer los metadatos de las imágenes.
-- **dotenv**: Utilizada para cargar variables de entorno desde un archivo `.env`.
+- **dotenv**: Se usa para cargar variables de entorno desde un archivo `.env`.
 
 
 ## Dependencias
