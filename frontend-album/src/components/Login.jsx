@@ -1,13 +1,12 @@
 import { useState } from "react";
 import { useNavigate  } from "react-router-dom";
 import { useAuth } from "../auth/AuthContext";
-
+import '../styles/Login.css'
 
 function Login() {
     const navigate = useNavigate();
     const [ email, setEmail ] = useState('');
     const [ password, setPassword ] = useState('');
-
     const { login } = useAuth();
 
     const handleSubmit = async (e) => {
@@ -22,13 +21,12 @@ function Login() {
         } catch (error) {
             alert('Credenciales incorrectas')
         }
-
     }
 
     return (
         <>
-            <form onSubmit={handleSubmit}>
-                <label>Email:</label>
+            <form onSubmit={handleSubmit} className="loginForm">
+                <label>Email: </label>
                 <input
                     id="email-address"
                     name="email"
@@ -38,7 +36,7 @@ function Login() {
                     onChange={(e) => setEmail(e.target.value)}
                     required
                 />
-                <label>Password:</label>
+                <label> Password: </label>
                 <input 
                     id="password"
                     name="password"

@@ -44,26 +44,31 @@ function Home() {
     return(
         <>
             <Navbar onUploadSuccess={handleUploadSuccess} />
-            {loading && <p>Loading...</p>}
-            {error && <p>{error}</p>}
-            <div className='container-photos'>
-            {photos && photos.map(photo => (
-                <div key={photo._id} style={{width: 'auto'}}>
-                    <Link to={`/home/${photo._id}`} state={photo}>
-                            <img src={photo.cover_path} alt={photo.name}/>
-                    </Link>
+            <div className="content-wrapper">
+                {loading && <p className="loading-message">Cargando...</p>}
+                {error && <p className="error-message">{error}</p>}
+                <div className='container-photos'>
+                    {photos && photos.map(photo => (
+                        <div key={photo._id}>
+                            <Link to={`/home/${photo._id}`} state={photo}>
+                                <figure>
+                                    <img src={photo.cover_path} alt={photo.name}/>
+                                    <figcaption>{photo.name}</figcaption>
+                                </figure>
+                            </Link>
+                        </div>
+                    ))}
+                    {album && album.map(item => (
+                        <div key={item._id}>
+                            <Link to={`/home/album/${item._id}`} state ={item}>
+                                <figure>
+                                    <img src={item.cover_path} alt={item.name} onError={({ currentTarget }) => {currentTarget.onerror = null; currentTarget.src='/no-image.webp'; }}/>
+                                    <figcaption>{item.name}</figcaption>
+                                </figure>
+                            </Link>
+                        </div>
+                    ))}
                 </div>
-            ))}
-            {album && album.map(item => (
-                <div key={item._id} style={{width: 'auto'}}>
-                    <Link to={`/home/album/${item._id}`} state ={item}>
-                        <figure>
-                            <img src={item.cover_path} alt={item.name} onError={({ currentTarget }) => {currentTarget.onerror = null; currentTarget.src='/no-image.webp'; }}/>
-                            <figcaption>{item.name}</figcaption>
-                        </figure>
-                    </Link>
-                </div>
-            ))}
             </div>
         </>
     )

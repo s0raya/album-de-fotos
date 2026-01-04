@@ -16,9 +16,6 @@ function CreateAlbum({onUploadSuccess, closeModal }) {
         e.preventDefault();
         setLoading(true);
         setError('')
-        const formData = new FormData();
-        formData.append('name', nameAlbum)
-        formData.append('parent', albumId)
         try {
             const response = await fetch(urlApi, {
                 method:'POST',
@@ -30,10 +27,12 @@ function CreateAlbum({onUploadSuccess, closeModal }) {
                     parent: albumId
                 })
             });
+            if(!response.ok) {
+                throw new Error(`Error al crear el album: ${response.status}`);
+            }
             closeModal();
             onUploadSuccess();
         } catch (error) {
-            console.log(error)
             setError(error.message);
         }
         setLoading(false);

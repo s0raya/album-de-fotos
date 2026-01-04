@@ -1,25 +1,169 @@
-.container_photo {
+.container-photo {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    margin: 2rem 0;
+    padding: 2rem;
+    background: var(--background-card);
+    border-radius: 20px;
+    box-shadow: var(--shadow-lg);
+}
+
+.container-photo section {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    flex: 1;
+}
+
+.container-photo > section:first-child > img {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: var(--shadow-md);
+    transition: transform 0.3s ease;
+    object-fit: contain;
+}
+
+.container-photo > section:first-child > img:hover {
+    transform: scale(1.02);
+}
+
+.container-photo section p {
+    margin: 0.25rem 0;
+    color: var(--text-secondary);
+    font-size: 1rem;
+}
+
+.container-photo section h4 {
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+}
+
+.weather-description-container .weather-icon {
+    width: 35px;
+    height: 35px;
+    margin-top: 0;
+    margin-left: 0.5rem;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+.photo-detail-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.photo-date {
+    margin-bottom: 0.5rem;
+}
+
+.weather-info {
     display: flex;
     align-items: center;
-
+    gap: 0.5rem;
+    flex-wrap: wrap;
 }
 
-.container_photo img {
-    max-width: 50%;
+.weather-info p {
+    margin: 0;
 }
 
-.btn-delete, .btn-download {
-    font-size: 40px;
+.weather-description-container {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.weather-description-container p {
+    margin: 0;
+}
+
+.location-section {
+    margin-top: 1rem;
+}
+
+.map-container {
+    width: 100%;
+    height: 300px;
+    margin-top: 0.5rem;
+}
+
+.map-iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    border-radius: 8px;
+    display: block;
+}
+
+.map-link {
+    color: #007bff;
+}
+
+.options-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin: 2rem 0;
+    padding: 1.5rem;
+    background: var(--background-card);
+    border-radius: 16px;
+    box-shadow: var(--shadow-md);
+}
+
+.btn-delete, .btn-download, .btn-edit {
+    font-size: 2rem;
     border: none;
-    background: none;
+    background: transparent;
+    color: var(--text-secondary);
+    cursor: pointer;
+    padding: 0.75rem;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
 }
 
 .btn-delete:hover {
-    color: red;
-    cursor: pointer;
+    color: #ef4444;
+    background: rgba(239, 68, 68, 0.1);
+    transform: scale(1.1);
 }
 
 .btn-download:hover {
-    color: blue;
-    cursor: pointer;
+    color: #3b82f6;
+    background: rgba(59, 130, 246, 0.1);
+    transform: scale(1.1);
+}
+
+.btn-edit:hover {
+    color: #a855f7;
+    background: rgba(168, 85, 247, 0.1);
+    transform: scale(1.1);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .container-photo {
+        flex-direction: column;
+        padding: 1rem;
+    }
+    
+    .options-buttons {
+        gap: 1rem;
+    }
+    
+    .btn-delete, .btn-download, .btn-edit {
+        font-size: 1.5rem;
+        width: 45px;
+        height: 45px;
+    }
 }

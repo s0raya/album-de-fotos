@@ -1,41 +1,85 @@
 #root {
-  max-width: 1280px;
+  display: flex;
+  flex-direction: column;
   margin: 0 auto;
   padding: 1rem;
+  min-height: 100dvh;
+  width: 100%;
+  max-width: 95%;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+/* Mejoras para los componentes */
+h3 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 1.5rem 0;
+  text-align: center;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+p {
+  color: var(--text-secondary);
+  line-height: 1.6;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+/* Loading y error states */
+p[style*="Loading"], p[style*="Cargando"] {
+  text-align: center;
+  padding: 2rem;
+  font-size: 1.2rem;
+  color: var(--text-secondary);
 }
 
-.card {
-  padding: 2em;
+p[style*="error"] {
+  text-align: center;
+  padding: 1rem;
+  background: rgba(239, 68, 68, 0.1);
+  color: #ef4444;
+  border-radius: 8px;
+  border: 1px solid rgba(239, 68, 68, 0.3);
 }
 
-.read-the-docs {
-  color: #888;
+/* Mejoras para los mapas */
+iframe {
+  border-radius: 12px !important;
 }
+
+/* Mejoras para los modales */
+.modal-content {
+  background: var(--background-card) !important;
+  border-radius: 20px !important;
+  border: 1px solid var(--border-color) !important;
+}
+
+/* Footer del álbum */
+.footer-album {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  margin-top: 2rem;
+  background: var(--background-card);
+  border-radius: 16px;
+  box-shadow: var(--shadow-md);
+}
+
+.footer-album .btn-delete {
+  font-size: 2rem;
+  color: var(--text-secondary);
+  cursor: pointer;
+  padding: 0.75rem;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+}
+
+.footer-album .btn-delete:hover {
+  color: #ef4444;
+  background: rgba(239, 68, 68, 0.1);
+  transform: scale(1.1);
+}
+

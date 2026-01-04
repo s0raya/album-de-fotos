@@ -1,5 +1,185 @@
 .container-photos {
     display: flex;
     flex-wrap: wrap;
-    gap: 40px;
+    gap: 2rem;
+    padding: 2rem 0;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+.container-photos > div {
+    position: relative;
+    overflow: hidden;
+    border-radius: 16px;
+    background: var(--background-card);
+    box-shadow: var(--shadow-lg);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    flex: 0 0 calc(25% - 1.5rem);
+    min-width: 280px;
+    width: 280px;
+    height: 380px;
+    display: flex;
+    flex-direction: column;
+}
+
+.container-photos > div:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: var(--shadow-xl);
+}
+
+.container-photos img {
+    width: 100%;
+    height: 320px;
+    min-height: 320px;
+    max-height: 320px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+    flex-shrink: 0;
+}
+
+.container-photos > div:hover img {
+    transform: scale(1.1);
+}
+
+.container-photos figure {
+    margin: 0;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    flex: 1;
+    min-height: 0;
+}
+
+.container-photos figcaption {
+    position: relative;
+    background: var(--background-card);
+    color: var(--text-primary);
+    padding: 0.75rem 1rem;
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-align: center;
+    transform: translateY(0);
+    border-top: 1px solid var(--border-color);
+    flex-shrink: 0;
+    height: 60px;
+    min-height: 60px;
+    max-height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    box-sizing: border-box;
+    line-height: 1.2;
+}
+
+
+/* Contenedor principal */
+.content-wrapper {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0 1rem;
+    box-sizing: border-box;
+}
+
+/* Estados de carga y error */
+.loading-message {
+    text-align: center;
+    padding: 2rem;
+    color: var(--text-secondary);
+    font-size: 1.2rem;
+}
+
+.error-message {
+    text-align: center;
+    padding: 1rem;
+    background: rgba(239, 68, 68, 0.1);
+    color: #ef4444;
+    border-radius: 8px;
+    border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+.empty-album-message {
+    text-align: center;
+    padding: 2rem;
+    color: #666;
+}
+
+/* Efecto de overlay en hover */
+.container-photos > div::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(139, 92, 246, 0.1));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.container-photos > div:hover::before {
+    opacity: 1;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+    .container-photos > div {
+        flex: 0 0 calc(33.333% - 1.5rem);
+        min-width: 250px;
+        width: 250px;
+        height: 350px;
+    }
+    
+    .container-photos img {
+        height: 290px;
+        min-height: 290px;
+        max-height: 290px;
+    }
+}
+
+@media (max-width: 768px) {
+    .container-photos {
+        gap: 1rem;
+        padding: 1rem 0;
+    }
+    
+    .container-photos > div {
+        flex: 0 0 calc(50% - 0.5rem);
+        min-width: 200px;
+        width: 200px;
+        height: 300px;
+    }
+    
+    .container-photos img {
+        height: 240px;
+        min-height: 240px;
+        max-height: 240px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container-photos > div {
+        flex: 0 0 100%;
+        width: 100%;
+        max-width: 300px;
+        margin: 0 auto;
+        height: 350px;
+    }
+    
+    .container-photos img {
+        height: 290px;
+        min-height: 290px;
+        max-height: 290px;
+    }
 }

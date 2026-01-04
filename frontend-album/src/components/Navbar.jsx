@@ -17,7 +17,16 @@ const customStyles = {
       boxShadow: state.isFocused ? '0 0 0 2px #007bff' : 'none',
       '&:hover': {
         border: '1px solid #007bff'
-      }
+      },
+      zIndex: 1000,
+    }),
+    menu: (baseStyles) => ({
+      ...baseStyles,
+      zIndex: 1000,
+    }),
+    menuPortal: (baseStyles) => ({
+      ...baseStyles,
+      zIndex: 1000,
     }),
     option: (baseStyles, state) => ({
       ...baseStyles,
@@ -60,8 +69,10 @@ function Navbar({ onUploadSuccess }) {
           <Select 
               options={options}
               onChange={handleChange}
-              placeholder="Upload"
+              placeholder="Subir foto o crear album"
               styles={customStyles}
+              menuPortalTarget={document.body}
+              menuPosition="fixed"
           />
           <button onClick={handleLogout}>Cerrar sesion</button>
           <Modal isOpen={isOpenModalUpload} closeModal={closeModalUpload}>
