@@ -1,4 +1,3 @@
-const path = require('path');
 const { uploadFile, getTransformedURL, deleteFromCloudinary } = require('../middleware/uploadFile.js')
 const {Photo, Album} = require('../models/Photo.js')
 

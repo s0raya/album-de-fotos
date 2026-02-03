@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import NavbarPhoto from './NavbarPhoto.jsx';
-import i18n from '../i18n.js'
 import { useTranslation } from 'react-i18next';
 import moment from 'moment';
 import '../styles/ItemDetailPhoto.css'
@@ -49,19 +48,28 @@ function ItemDetailPhoto() {
     const uploadPhotoEdited = async(e) => {
         e.preventDefault();
         try {
+            // Preservar la extensión del nombre original
+            const extension = getFileExtension(initialName);
+            let finalName = nameModal.trim();
+            
+            // Si hay extensión y el nombre no termina con ella, añadirla
+            if (extension && finalName && !finalName.endsWith(extension)) {
+                finalName = finalName + extension;
+            }
+            
             await fetch((`${urlApi}/${_id}`), {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
-                    name: nameModal,
+                    name: finalName,
                     date: newDateModal,
                     temp: tempModal
                 })
             })
             alert('Foto actualizada');
-            setName(nameModal);
+            setName(finalName);
             setFormattedDate(moment(newDateModal).format('DD-MM-YYYY HH:mm'));
             setTemp(tempModal);
             closeModalEditPhoto();
@@ -100,7 +108,17 @@ function ItemDetailPhoto() {
         }
     }
 
-    const handleNameChange = (e) => setNameModal(e.target.value);
+    // Función para extraer la extensión del nombre original
+    const getFileExtension = (filename) => {
+        const lastDot = filename.lastIndexOf('.');
+        if (lastDot === -1) return '';
+        return filename.substring(lastDot);
+    };
+
+    const handleNameChange = (e) => {
+        setNameModal(e.target.value);
+    };
+    
     const handleDateChange = (e) => setNewDateModal(e.target.value);
     const handleTempChange = (e) => {
         const value = e.target.value === '' ? '' : e.target.value;
@@ -123,7 +141,7 @@ function ItemDetailPhoto() {
                     </div>
                     <div className="weather-description-container">
                         <WeatherDescription description={description} />
-                        {icon && <img src={`https://openweathermap.org/img/wn/${icon}.png`} alt={description} className="weather-icon" />}
+                        {icon && <WeatherIcon icon={icon} description={description} />}
                     </div>
                     {lat && lng && (
                         <div className="location-section">
@@ -173,9 +191,23 @@ function ItemDetailPhoto() {
 
 function WeatherDescription({description}) {
     const { t } = useTranslation();
-    const translatedDescription = t(description) !== description ? t(description) : description;
+    // Traducir la descripción del tiempo
+    const translatedDescription = t(description);
     return (
-        <p>{t(translatedDescription)}</p>
+        <p>{translatedDescription}</p>
+    )
+}
+
+function WeatherIcon({icon, description}) {
+    const { t } = useTranslation();
+    // Traducir la descripción para el atributo alt
+    const translatedDescription = t(description);
+    return (
+        <img 
+            src={`https://openweathermap.org/img/wn/${icon}.png`} 
+            alt={translatedDescription} 
+            className="weather-icon" 
+        />
     )
 }
 

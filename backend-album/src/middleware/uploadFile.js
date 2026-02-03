@@ -91,11 +91,6 @@ function getTransformedURL(originalURL, options = {}) {
     }
 }
 
-/**
- * Extrae el public_id de una URL de Cloudinary
- * @param {string} url - URL de Cloudinary
- * @returns {string|null} public_id o null si no se puede extraer
- */
 function extractPublicId(url) {
     try {
         // Limpiar la URL: quitar parámetros de query si existen
@@ -128,11 +123,6 @@ function extractPublicId(url) {
         // El public_id debe incluir la carpeta si existe (ej: "files/1234567890-foto")
         const publicId = pathWithoutVersion.replace(/\.[^/.]+$/, '');
         
-        console.log('URL original:', url);
-        console.log('Path después de /upload/:', pathAfterUpload);
-        console.log('Path sin versión:', pathWithoutVersion);
-        console.log('Public ID extraído:', publicId);
-        
         return publicId;
     } catch (error) {
         console.error('Error extrayendo public_id:', error);
@@ -140,11 +130,6 @@ function extractPublicId(url) {
     }
 }
 
-/**
- * Elimina una imagen de Cloudinary
- * @param {string} url - URL de Cloudinary de la imagen a eliminar
- * @returns {Promise<boolean>} true si se eliminó correctamente, false en caso contrario
- */
 async function deleteFromCloudinary(url) {
     try {
         const publicId = extractPublicId(url);
@@ -154,8 +139,6 @@ async function deleteFromCloudinary(url) {
             return false;
         }
         
-        console.log('Intentando eliminar de Cloudinary con public_id:', publicId);
-        
         return new Promise((resolve) => {
             cloudinary.uploader.destroy(publicId, { 
                 resource_type: 'image',
@@ -163,13 +146,10 @@ async function deleteFromCloudinary(url) {
             }, (error, result) => {
                 if (error) {
                     console.error('Error eliminando de Cloudinary:', error);
-                    console.error('Detalles del error:', JSON.stringify(error, null, 2));
                     resolve(false);
                 } else {
-                    console.log('Resultado de Cloudinary destroy:', JSON.stringify(result, null, 2));
                     if (result.result === 'ok' || result.result === 'not found') {
                         // 'not found' también es aceptable (ya estaba eliminado)
-                        console.log(`Imagen eliminada de Cloudinary: ${publicId}`);
                         resolve(true);
                     } else {
                         console.warn('Resultado inesperado al eliminar de Cloudinary:', result);

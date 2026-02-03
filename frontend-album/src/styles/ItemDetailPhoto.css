@@ -7,23 +7,42 @@
     background: var(--background-card);
     border-radius: 20px;
     box-shadow: var(--shadow-lg);
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
 }
 
 .container-photo section {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
-    flex: 1;
+    min-width: 0;
+    box-sizing: border-box;
+}
+
+.container-photo > section:first-child {
+    flex: 2;
+    min-width: 0;
+    max-width: calc(100% - 300px);
+    overflow: hidden;
+}
+
+.container-photo > section:last-child {
+    flex: 0 0 280px;
+    min-width: 200px;
+    max-width: 300px;
 }
 
 .container-photo > section:first-child > img {
     width: 100%;
-    max-width: 600px;
+    max-width: 100%;
     height: auto;
     border-radius: 12px;
     box-shadow: var(--shadow-md);
     transition: transform 0.3s ease;
     object-fit: contain;
+    display: block;
 }
 
 .container-photo > section:first-child > img:hover {
@@ -55,6 +74,8 @@
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 1rem;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .photo-date {
@@ -155,6 +176,18 @@
     .container-photo {
         flex-direction: column;
         padding: 1rem;
+        gap: 1rem;
+    }
+    
+    .container-photo > section:first-child {
+        max-width: 100%;
+        width: 100%;
+    }
+    
+    .container-photo > section:last-child {
+        flex: 1;
+        max-width: 100%;
+        width: 100%;
     }
     
     .options-buttons {
